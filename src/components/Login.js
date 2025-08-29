@@ -14,6 +14,7 @@ const Login = () => {
   const handleLogin = async () => {
     setError("");
     setLoading(true);
+    localStorage.removeItem('token'); 
 
     try {
       const res = await API.post("/admin/login/", { email, password });
@@ -30,6 +31,7 @@ const Login = () => {
       setLoading(false);
     }
   };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
@@ -84,9 +86,8 @@ const Login = () => {
         <button
           onClick={handleLogin}
           disabled={loading}
-          className={`w-full bg-blue-900 text-white py-3 rounded-lg transition-colors font-medium ${
-            loading ? "opacity-70 cursor-not-allowed" : "hover:bg-blue-800"
-          }`}
+          className={`w-full bg-blue-900 text-white py-3 rounded-lg transition-colors font-medium ${loading ? "opacity-70 cursor-not-allowed" : "hover:bg-blue-800"
+            }`}
         >
           {loading ? "Logging in..." : "Log In"}
         </button>

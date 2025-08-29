@@ -26,7 +26,7 @@ const ManagerRow = ({ manager, onDelete }) => {
         <td className="px-4 py-2 text-sm font-medium text-gray-700">{manager.id}</td>
         <td className="px-4 py-2 text-sm text-gray-600">{manager.full_name}</td>
         <td className="px-4 py-2 text-sm text-gray-600">{manager.phone_number}</td>
-        <td className="px-4 py-2 text-sm text-gray-600">{manager.department}</td>
+        <td className="px-4 py-2 text-sm text-gray-600">{manager.department_name}</td>
         <td className="px-4 py-2 text-sm text-gray-600">{manager.team_name}</td>
         <td className="px-4 py-2 text-sm text-gray-600">{manager.added_on}</td>
         <td className="px-4 py-2 text-sm text-gray-600">{manager.email}</td>
@@ -70,7 +70,7 @@ const ManagerRow = ({ manager, onDelete }) => {
         </div>
         <p className="text-xs text-gray-600 mb-1">ID: {manager.id}</p>
         <p className="text-xs text-gray-600 mb-1">Phone: {manager.phone_number}</p>
-        <p className="text-xs text-gray-600 mb-1">Department: {manager.department.name}</p>
+        <p className="text-xs text-gray-600 mb-1">Department: {manager.department_name}</p>
         <p className="text-xs text-gray-600 mb-1">Team: {manager.team_name}</p>
         <p className="text-xs text-gray-600 mb-1">Added on: {manager.added_on}</p>
         <p className="text-xs text-gray-600 mb-1">Email: {manager.email}</p>

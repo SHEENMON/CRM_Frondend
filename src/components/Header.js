@@ -14,7 +14,7 @@ const Header = ({ title }) => {
       try {
         const res = await API.get("/admin/");
         const data = res?.data || {};
-        setAdminName(data.name || "Admin");
+        setAdminName(data.name || "dmin");
       } catch (err) {
         console.error("Failed to fetch admin:", err);
       }

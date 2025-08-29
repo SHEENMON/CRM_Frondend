@@ -73,7 +73,7 @@ const EditCustomerForm = () => {
       await API.put(`/customers/${id}/`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      navigate("/dashboard");
+      navigate("/customers");
     } catch (error) {
       console.error("Error updating customer:", error.response || error);
       alert(error.response?.data ? JSON.stringify(error.response.data) : "Something went wrong!");

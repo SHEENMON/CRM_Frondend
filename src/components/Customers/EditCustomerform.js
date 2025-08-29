@@ -38,7 +38,7 @@ const EditCustomerForm = () => {
           setPhone(data.phone_number);
         }
 
-        setDataPhotoUrl(data.photo_url);
+        setDataPhotoUrl(data.photo);
       } catch (error) {
         console.error("Error fetching customer:", error.response || error);
         alert("Failed to fetch customer data");

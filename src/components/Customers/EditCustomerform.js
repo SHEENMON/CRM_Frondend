@@ -17,6 +17,7 @@ const EditCustomerForm = () => {
   const [dataPhotoUrl, setDataPhotoUrl] = useState(null);
   const [isActive, setIsActive] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState(null);
 
   useEffect(() => {
     const fetchCustomer = async () => {
@@ -48,7 +49,11 @@ const EditCustomerForm = () => {
     fetchCustomer();
   }, [id, navigate]);
 
-  const handleFileChange = (e) => setPhoto(e.target.files[0]);
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setPhoto(file);
+    if (file) setPreviewUrl(URL.createObjectURL(file));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -89,15 +94,15 @@ const EditCustomerForm = () => {
       {/* Full Name */}
       <div className="flex flex-col gap-1 md:col-span-2">
         <label className="text-gray-700 font-medium">Full Name</label>
-        <Input  value={fullName} onChange={(e) => setFullName(e.target.value)} label="Full Name" className="text-sm" />
+        <Input value={fullName} onChange={(e) => setFullName(e.target.value)} label="Full Name" className="text-sm" />
       </div>
 
       {/* Photo */}
       <div className="flex flex-col gap-2 md:col-span-2">
         <label className="text-gray-700 font-medium">Profile Picture</label>
         <div className="flex items-center gap-4 flex-wrap">
-          {photo ? (
-            <p className="text-sm">{photo.name}</p>
+          {previewUrl ? (
+            <img src={previewUrl} alt={fullName} className="w-16 h-16 rounded-full object-cover border" />
           ) : dataPhotoUrl ? (
             <img src={dataPhotoUrl} alt={fullName} className="w-16 h-16 rounded-full object-cover border" />
           ) : null}
@@ -148,7 +153,7 @@ const EditCustomerForm = () => {
 
       {/* Buttons */}
       <div className="md:col-span-2 flex flex-wrap justify-end gap-4 mt-4">
-        <Button type="button" className="bg-blue-900" onClick={() => navigate("/dashboard")}>
+        <Button type="button" className="bg-blue-900" onClick={() => navigate("/customers")}>
           Cancel
         </Button>
         <Button type="submit" className="bg-blue-900" disabled={loading}>

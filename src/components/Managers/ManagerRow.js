@@ -70,7 +70,7 @@ const ManagerRow = ({ manager, onDelete }) => {
         </div>
         <p className="text-xs text-gray-600 mb-1">ID: {manager.id}</p>
         <p className="text-xs text-gray-600 mb-1">Phone: {manager.phone_number}</p>
-        <p className="text-xs text-gray-600 mb-1">Department: {manager.department_name}</p>console.log({manager.department_name})
+        <p className="text-xs text-gray-600 mb-1">Department: {manager.department.name}</p>
         <p className="text-xs text-gray-600 mb-1">Team: {manager.team_name}</p>
         <p className="text-xs text-gray-600 mb-1">Added on: {manager.added_on}</p>
         <p className="text-xs text-gray-600 mb-1">Email: {manager.email}</p>
